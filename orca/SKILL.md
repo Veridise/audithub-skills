@@ -41,3 +41,6 @@ A fuzzing campaign consists of these elements:
 - Use available repository inspection tools to understand contracts, dependencies, and call flows.
 - Keep outputs strict to the specified format for each role.
 - Prefer concrete, code-grounded findings over speculation.
+
+## References
+Make sure to always inspect all files under `references/orca-docs/user_guide/advanced_usage/`.
