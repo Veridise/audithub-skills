@@ -27,4 +27,4 @@ Create a single deployment script for the input Solidity project suitable for an
 - Otherwise, return only the deployment script as a string.
 
 ## References
-- Use OrCa deployment guidance and tips in `references/`.
+- Use OrCa deployment guidance and tips in `references/orca-docs`.

@@ -42,4 +42,4 @@ function withdraw(uint amount, address balanceOwner, address recipient) public o
 - Otherwise, write hints to the codebase under `orca_config/hints/` with an appropriate filename.
 
 ## References
-- Use OrCa hint language documentation in `references/`.
+- Use OrCa hint language documentation in `references/orca-docs`.

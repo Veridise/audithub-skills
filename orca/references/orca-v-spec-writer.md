@@ -30,4 +30,4 @@ Convert security properties for a Solidity project into [V] specs.
 - End with: "V spec generation completed. JSON [V] specs returned."
 
 ## References
-- Use OrCa [V] language documentation in `references/`.
+- Use OrCa [V] language documentation in `references/orca-docs`.

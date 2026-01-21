@@ -1,0 +1,3 @@
+[submodule "veridise-docs"]
+	path = veridise-docs
+	url = https://github.com/Veridise/veridise-docs.git
