@@ -31,4 +31,5 @@ ln -s "$(pwd)/write-issue" ~/.codex/skills/write-issue
 
 ## Skills
 - `orca`: Set of skills for setting up OrCa fuzzing campaigns and analyze OrCa results.
+- `defi-vanguard`: Set of skills for setting up DeFi Vanguard scans and analyze their results.
 
