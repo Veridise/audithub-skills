@@ -11,6 +11,8 @@ Convert security properties for a Solidity project into [V] specs.
 2. Translate to [V]
    - Convert each confirmed property into a concise [V] specification. All properties must be represented as [V] specs.
    - Keep references to contract and function names; avoid raw code dumps.
+   - The specifications must NEVER mirror the implementation as the implementation might be buggy. Express specifications based on the external API of contracts as much as possible.
+   - Avoid using storage variables that might be susceptible to precision loss (e.g., via division, truncation to zero, etc.). In such cases, find an equivalent way of expressing the same property that doesn't rely on the problematic storage variable.
 
 ## Workflow
 1. Request a brief project overview and key contract roles.
