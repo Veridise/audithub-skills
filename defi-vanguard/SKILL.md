@@ -5,7 +5,7 @@ description: Use for AuditHub DeFi Vanguard workflows such as preparing static a
 
 # DeFi Vanguard skill overview
 
-Use DeFi Vanguard to prepare static analysis scans for Solidity projects and to triage results. Follow the role-specific guidance below and refer to DeFi Vanguard detector documentation in `references/`.
+Use DeFi Vanguard to prepare static analysis scans for Solidity projects and to triage results. Follow the role-specific guidance below and refer to DeFi Vanguard detector documentation in `references/`. 
 
 ## Roles and routing
 
@@ -13,6 +13,9 @@ Use DeFi Vanguard to prepare static analysis scans for Solidity projects and to 
   - See `references/vanguard-scan-planner.md`.
 - Result Analyzer: Triage DeFi Vanguard outputs into a structured JSON report.
   - See `references/vanguard-result-analyzer.md`.
+- Custom Detector Builder: Build definitions of custom detectors. 
+  - See `references/vanguard-custom-detector-builder.md`
+  - Focus on documenation in `references/defi-vanguard-docs/custom-detectors`
 
 ## General expectations
 
