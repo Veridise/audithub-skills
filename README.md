@@ -18,7 +18,7 @@ Example (from repo root):
 
 ```bash
 mkdir -p ~/.codex/skills
-ln -s "$(pwd)/write-issue" ~/.codex/skills/write-issue
+ln -s "$(pwd)/" ~/.codex/skills/audithub-skills
 ```
 
 ## Contribution guidelines
