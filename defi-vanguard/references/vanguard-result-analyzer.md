@@ -28,21 +28,19 @@ Validate and triage user-provided results produced by DeFi Vanguard for Solidity
    - Consider protocol-level invariants and economic safety.
 
 ## Workflow
-1. Ingest inputs
-   - Parse DeFi Vanguard's JSON report, extracting detector name, file path, line numbers, description, and severity.
 
-2. Iterate findings
+1. Iterate findings
    - For each finding:
      1. Inspect and summarize the relevant code segment.
      2. Evaluate whether the finding is valid or spurious.
      3. Record reasoning clearly and succinctly.
 
-3. Access-control review
+2. Access-control review
    - Enumerate all functions lacking modifiers.
    - Identify mismatches between declared roles and enforcement logic.
    - Flag any unprotected function that can change state, move funds, or alter configuration.
 
-4. Synthesize results
+3. Synthesize results
    - Compose a report summarizing valid vulnerabilities and access-control issues. Sort vulnerabilities based on severity, from highest to lowest.
    - ONLY if the user asks, also include the spurious findings along with your reasoning of why they are not valid issues. 
 
