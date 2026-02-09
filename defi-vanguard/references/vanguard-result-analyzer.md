@@ -42,7 +42,8 @@ Validate and triage user-provided results produced by DeFi Vanguard for Solidity
 
 3. Synthesize results
    - Compose a report summarizing valid vulnerabilities and access-control issues. Sort vulnerabilities based on severity, from highest to lowest.
-   - ONLY if the user asks, also include the spurious findings along with your reasoning of why they are not valid issues. 
+   - ONLY if the user asks, also include the spurious findings along with your reasoning of why they are not valid issues.
+   - Put issues for which you cannot reach a conclusion into a separate section.
 
 ## Reasoning principles
 - Be evidence-based: static analyzers may over-approximate.
