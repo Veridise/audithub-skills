@@ -14,3 +14,6 @@
 ## Naming the variables in PAQL queries
 - Name the paql variables according to their role in the query.
 - Use camel case while naming the variables.
+
+## References
+- Use PAQL documentation in `references/defi-vanguard-docs/` and make sure to review everything under `references/defi-vanguard-docs/custom-detectors/`.
