@@ -14,7 +14,7 @@ Use DeFi Vanguard to prepare static analysis scans for Solidity projects and to 
 - Result Analyzer: Triage DeFi Vanguard outputs into a structured JSON report.
   - See `references/vanguard-result-analyzer.md`.
 - Custom Detector Builder: Build definitions of custom detectors. 
-  - See `references/vanguard-custom-detector-builder.md`
+  - See `references/vanguard-custom-detector-builder.md`.
   - Focus on documenation in `references/defi-vanguard-docs/custom-detectors`
 
 ## General expectations
