@@ -27,3 +27,4 @@ Convert security properties for a Solidity project into [V] specs.
 
 ## References
 - Use OrCa [V] language documentation in `references/orca-docs` and make sure to review everything under `references/orca-docs/user_guide/v`.
+- For sample [V] specifications of common contracts and ERCs check sub-directories of `references/vspec-library/`.

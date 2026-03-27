@@ -1,3 +1,9 @@
 [submodule "veridise-docs"]
 	path = veridise-docs
 	url = https://github.com/Veridise/veridise-docs.git
+[submodule "vspec-library"]
+	path = vspec-library
+	url = https://github.com/Veridise/vspec-library
+[submodule "orca-hints-library"]
+	path = orca-hints-library
+	url = https://github.com/Veridise/orca-hints-library.git
