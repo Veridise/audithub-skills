@@ -43,3 +43,4 @@ function withdraw(uint amount, address balanceOwner, address recipient) public o
 
 ## References
 - Use OrCa hint language documentation in `references/orca-docs` and sure to review everything under `references/orca-docs/user_guide/hints/`.
+- For sample hints of common contracts and ERCs check sub-directories of `references/hints-library/`.
