@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Counterexample Analyzer"
+  short_description: "Triage OrCa counterexamples and PoC evidence."
+  default_prompt: "Analyze these OrCa counterexamples and classify bugs vs spec issues."

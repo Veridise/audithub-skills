@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Hint Writer"
+  short_description: "Write OrCa hints from execution preconditions."
+  default_prompt: "Write OrCa hints for these hard-to-reach functions."

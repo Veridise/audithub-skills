@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Local Deployment Builder"
+  short_description: "Build realistic local deployment scripts for OrCa campaigns."
+  default_prompt: "Create a local OrCa deployment script for this Solidity project."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Smoke Run Debugger"
+  short_description: "Debug short OrCa smoke runs and setup failures."
+  default_prompt: "Smoke-test this OrCa campaign setup and diagnose any failures."

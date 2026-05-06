@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Property Discoverer"
+  short_description: "Discover English protocol properties for OrCa specs."
+  default_prompt: "Discover English-language OrCa properties for this protocol."

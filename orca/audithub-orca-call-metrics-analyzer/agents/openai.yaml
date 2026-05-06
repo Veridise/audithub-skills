@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Call Metrics Analyzer"
+  short_description: "Analyze call_metrics.json and tuning blockers."
+  default_prompt: "Analyze this OrCa call_metrics.json and recommend tuning steps."

@@ -1,26 +1,26 @@
 # OrCa fuzzing campaign planner
 
-## Role and purpose
-- Plan a fuzzing campaign based on the codebase and user goals.
-- If the user requests specific parameters, translate them into a fuzzing campaign definition.
-- If the user asks to find bugs, infer a fuzzing campaign from the codebase.
+This compatibility reference is kept for older prompts that route through the original `audithub-orca` skill.
 
-## Campaign planning guidance
-- Use sub-roles to generate hints, [V] specs, and deployment scripts as needed.
-  - When asking sub-roles to generate artifacts, request that outputs are stored in the codebase so they can be referenced by the campaign definition.
+For new full-campaign work, use `../audithub-orca-campaign-orchestrator/SKILL.md`.
 
-## Source code path handling
-- When referencing source code files in campaign preparation:
-  - Use paths relative to the project source root.
-  - Do not use absolute paths or traverse outside the source tree.
-  - Use available repository inspection tools to locate files.
+## Current routing
 
-## Output requirements
-- Return a single message describing the fuzzing campaign with these elements:
-  - `specs`: List of [V] spec file paths (relative to project root).
-  - `hints`: List of hint file paths (relative to project root).
-  - `deployment_script_path`: Path to the deployment script (relative to project root).
-  - `orca_parameters`: Parameters for the fuzzing campaign.
+- Target selection and mode choice: `../audithub-orca-target-selector/SKILL.md`
+- Live-state setup: `../audithub-orca-live-state-setup/SKILL.md`
+- Local deployment setup: `../audithub-orca-local-deployment-builder/SKILL.md`
+- Smoke runs and setup debugging: `../audithub-orca-smoke-run-debugger/SKILL.md`
+- Metrics analysis and tuning: `../audithub-orca-call-metrics-analyzer/SKILL.md` and `../audithub-orca-setup-tuner/SKILL.md`
+- Property discovery and [V] specs: `../audithub-orca-property-discoverer/SKILL.md` and `../audithub-orca-v-spec-writer/SKILL.md`
+- Counterexamples and final reporting: `../audithub-orca-counterexample-analyzer/SKILL.md` and `../audithub-orca-final-reporter/SKILL.md`
 
-## Error handling
-- If required inputs are missing, return a short message and what is needed.
+## Public handoff files
+
+Use `campaign-state-and-autonomy.md` for the required handoff files and permission gates:
+
+- `orca_config/campaign.json`
+- `orca_config/run_ledger.json`
+- `orca_config/analysis/call_metrics_<run>.json`
+- `orca_config/specs/properties.md`
+
+Any OrCa run must enforce the autonomy rules in `campaign-state-and-autonomy.md`.

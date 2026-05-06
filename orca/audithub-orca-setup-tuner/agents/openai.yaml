@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Setup Tuner"
+  short_description: "Tune OrCa setup while preserving fuzz breadth."
+  default_prompt: "Tune this OrCa campaign setup using the latest metrics."
