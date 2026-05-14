@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Campaign Orchestrator"
+  short_description: "Run and coordinate end-to-end OrCa fuzzing campaigns."
+  default_prompt: "Run an OrCa fuzzing campaign for this Solidity project."

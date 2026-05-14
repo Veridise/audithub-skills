@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Target Selector"
+  short_description: "Select critical contracts and campaign mode for OrCa fuzzing."
+  default_prompt: "Select OrCa fuzzing targets for this Solidity project."

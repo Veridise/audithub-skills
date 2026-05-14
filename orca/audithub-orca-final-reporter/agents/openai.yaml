@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Final Reporter"
+  short_description: "Summarize final OrCa campaign results and findings."
+  default_prompt: "Prepare a final report for this OrCa campaign."

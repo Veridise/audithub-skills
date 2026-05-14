@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Live-State Setup"
+  short_description: "Prepare on-chain OrCa deployment inputs and proxy-aware ABIs."
+  default_prompt: "Prepare live-state OrCa setup for these contracts."

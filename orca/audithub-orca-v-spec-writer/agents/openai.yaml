@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa V Spec Writer"
+  short_description: "Translate protocol properties into OrCa [V] specs."
+  default_prompt: "Translate these English properties into OrCa [V] specifications."
