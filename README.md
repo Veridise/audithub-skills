@@ -12,13 +12,24 @@ This repository contains skills for AI agents (e.g., Codex/Claude code) useful f
 For multiple related skills, create a single directory with a single `README.md`, and a sub-directory for each skill.
 
 ## Using the skills locally
-If you are using codex, symlink a skill folder into your local `~/.codex/skills` directory so Codex can load it.
+If your agent supports installing skills directly from a repository, prefer that flow first.
+
+If you are using codex locally, symlink a skill folder into your local `~/.codex/skills` directory so Codex can load it.
+
+If you are using Claude Code, symlink a skill folder into your local Claude skills directory so Claude Code can load it. For many setups, that directory is `~/.claude/skills`.
 
 Example (from repo root):
 
 ```bash
 mkdir -p ~/.codex/skills
 ln -s "$(pwd)/" ~/.codex/skills/audithub-skills
+```
+
+Claude Code example:
+
+```bash
+mkdir -p ~/.claude/skills
+ln -s "$(pwd)/" ~/.claude/skills/audithub-skills
 ```
 
 ## Contribution guidelines
@@ -32,4 +43,3 @@ ln -s "$(pwd)/" ~/.codex/skills/audithub-skills
 ## Skills
 - `orca`: Set of skills for setting up OrCa fuzzing campaigns and analyze OrCa results.
 - `defi-vanguard`: Set of skills for setting up DeFi Vanguard scans and analyze their results.
-
