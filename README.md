@@ -41,5 +41,5 @@ ln -s "$(pwd)/" ~/.claude/skills/audithub-skills
 - Add or update tests/examples when behavior changes.
 
 ## Skills
-- `orca`: Set of skills for setting up OrCa fuzzing campaigns and analyze OrCa results.
-- `defi-vanguard`: Set of skills for setting up DeFi Vanguard scans and analyze their results.
+- [`orca`](./orca/README.md): Set of skills for setting up OrCa fuzzing campaigns and analyzing OrCa results.
+- [`defi-vanguard`](./defi-vanguard/README.md): Set of skills for setting up DeFi Vanguard scans and analyzing their results.
