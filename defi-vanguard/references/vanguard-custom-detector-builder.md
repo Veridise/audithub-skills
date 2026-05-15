@@ -17,4 +17,3 @@
 
 ## References
 - Use PAQL documentation in `references/defi-vanguard-docs/` and make sure to review everything under `references/defi-vanguard-docs/custom-detectors/`.
-- For sample PAQL detectors of common vulnerabilities and libraries check sub-directories of `references/paql-library/`. 
