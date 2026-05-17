@@ -11,7 +11,7 @@ This repository contains skills for AI agents (e.g., Codex/Claude code) useful f
 
 For multiple related skills, create a single directory with a single `README.md`, and a sub-directory for each skill.
 
-## Using the skills locally
+## Installing skills manually
 If your agent supports installing skills directly from a repository, prefer that flow first.
 
 If you are using codex locally, symlink a skill folder into your local `~/.codex/skills` directory so Codex can load it.
