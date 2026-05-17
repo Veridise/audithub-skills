@@ -1,4 +1,4 @@
-# Auditing Skills
+# AuditHub Skills
 
 This repository contains skills for AI agents (e.g., Codex/Claude code) useful for setting up and using AuditHub tools.
 
