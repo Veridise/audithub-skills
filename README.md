@@ -25,11 +25,11 @@ mkdir -p ~/.codex/skills
 ln -s "$(pwd)/" ~/.codex/skills/audithub-skills
 ```
 
-Claude Code example:
+Claude Code example (watch out, claude code does not recurse in the skill directory):
 
 ```bash
 mkdir -p ~/.claude/skills
-ln -s "$(pwd)/" ~/.claude/skills/audithub-skills
+ln -s "$(pwd)/<skill-dir>" ~/.claude/skills/<skill-dir>
 ```
 
 ## Contribution guidelines
