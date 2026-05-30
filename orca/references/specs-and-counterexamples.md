@@ -18,6 +18,34 @@ Read protocol code, tests, docs, deployment scripts, and any known design notes.
 
 Write English properties before [V]. Each property should say what should hold, when it should hold, and which observable protocol values demonstrate it.
 
+## Common invariant families
+
+Many real protocol bugs fall into a small number of recurring families. Consider whichever apply to the target contract, and add project-specific properties (oracle bounds, lifecycle/pause guards, monotonic accruals, user isolation, collateralization) on top when the code suggests them. Multiple specs from different families on the same campaign are usually better than one carefully crafted spec.
+
+- **Fund / value conservation.** A contract holding tokens or ETH should not lose net value to ordinary callers. Useful for staking, vaults, AMMs, escrow, subsidies, treasuries, NFT auctions.
+  - `vars: Token t, Custodian c`
+  - `spec: []!finished(*, t.balanceOf(c) < old(t.balanceOf(c)))`
+  - When a small loss is normal (DEX swap fees, withdrawal fees), use a slippage envelope: `K * new < (K - tolerance) * old`. When `old(...)` is unreliable on a live-state fork, pin the threshold to the on-chain balance at `fork_block` instead.
+
+- **Loose access control.** Every owner-only, admin-only, or role-gated mutator. Default fuzz users are non-privileged, so a successful call from any of them is a counterexample. Add one spec per privileged function discoverable in the ABI.
+  - `vars: Contract c`
+  - `spec: []!finished(c.privilegedFn)`
+
+- **AMM constant-product / reserves match balances.** Uniswap-V2-shaped pairs, custom AMMs, bonding curves.
+  - `[]!finished(*, p.getReserves()[0] * p.getReserves()[1] < old(p.getReserves()[0] * p.getReserves()[1]))`
+  - or `p.token0().balanceOf(address(p)) < p.getReserves()[0]` (and the analogue for token1).
+
+- **ERC-20 transfer correctness.** When fee-on-transfer, rebasing, blacklist, or a custom `_transfer` is suspected.
+  - `inv: to != sender ==> (t.balanceOf(sender) = old(t.balanceOf(sender)) - amt && t.balanceOf(to) = old(t.balanceOf(to)) + amt) over t.transfer(to, amt)`
+
+- **ERC-721 transfer authorization.** `transferFrom(from, to, id)` requires owner, approved, operator, or self-call.
+  - `[]!finished(t.transferFrom(from, to, id), from != t.ownerOf(id) || old(sender != t.getApproved(id) && !t.isApprovedForAll(from, sender) && from != sender))`
+
+- **Pay-for-token / no-free-mint.** A buyer's token balance only grows if they actually paid.
+  - `[]!finished(*, d.balanceOf(sender) > old(d.balanceOf(sender)) && balance(sender) - old(balance(sender)) < PRICE_WEI)`
+
+These are starting points, not a checklist. Skip families that don't fit the protocol, and write properties that aren't on this list when the code motivates them.
+
 ## [V] translation
 
 When translating English properties:
