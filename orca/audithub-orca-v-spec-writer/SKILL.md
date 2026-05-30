@@ -14,9 +14,12 @@ Convert intended protocol properties into [V] specs while preserving the mapping
 Before handing off or running a new [V] spec, verify the following:
 
 - Equality uses `=` in [V], not `==`.
+- Use `nulladdr` for zero-address checks; `address(0)` is rejected by the parser.
+- Avoid `bytes32(0)` literals; restructure the spec to compare without the explicit cast.
 - Exactly one of `spec` or `inv` is present in each file.
 - Any function-argument binding is intentional and not shadowing a free variable by accident.
 - The spec has a short validation path planned before it is used in a broader campaign.
+- Re-run all preflight checks on cached or inherited specs before submission; do not assume they still pass.
 
 ## Required references
 

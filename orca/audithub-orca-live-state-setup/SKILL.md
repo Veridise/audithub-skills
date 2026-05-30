@@ -29,6 +29,50 @@ When writing or validating on-chain deployment JSON, always include the full ABI
 
 For proxy implementation at a **historical block**: query `getLogs` for `Upgraded(address)` events (topic0 `0xbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b`) from block 0 to the target block (`toBlock=<fork_block>`) and take the last result. This is a single API call; do not open multiple Etherscan HTML pages to reconstruct proxy history.
 
+## Canonical `run_orca_task` payload
+
+Use this shape when submitting a live-state task via the `ah` MCP server. `parameters` is required; omitting it produces an HTTP 500. `specs_override` entries are discriminated by `type` (`version` | `stdlib` | `orglib` | `adhoc`).
+
+```json
+{
+  "organization_id": <int>,
+  "project_id": <int>,
+  "version_id": <int>,
+  "task_input": {
+    "name": "<campaign>-live-<block>-runN",
+    "deployment_info_file": "<project>_live_<block>.deployment.json",
+    "specs_override": [
+      { "type": "version", "relative_path": "v_specs/<file>.v" }
+    ],
+    "parameters": {
+      "timeout": 120,
+      "fork_network": "<NetworkName>",
+      "fork_block_number": <int>,
+      "fuzz_targets": ["<ContractName>"],
+      "language": "solidity"
+    }
+  }
+}
+```
+
+- `deployment_info_file` must end in `.deployment.json` to signal on-chain mode.
+- `specs_override` `relative_path` values are resolved against the uploaded archive's root.
+- `parameters.fuzz_targets` lists contract names, not function selectors.
+- `parameters.fork_network` must be one of the backend-allowed values: `mainnet`, `testnet`, `arbitrum-mainnet`, `arbitrum-testnet`, `base-mainnet`, `base-testnet`, `bsc-mainnet`, `bsc-testnet`.
+
+## Archive layout
+
+The uploaded archive must be flat-rooted; AuditHub resolves `relative_path` against the top of the archive. Required top-level entries:
+
+- `campaign.json`
+- `run_ledger.json`
+- `<project>_live_<block>.deployment.json`
+- `abis/`
+- `specs/`
+- `v_specs/`
+
+Do not nest these under a project-named subfolder.
+
 ## Workflow
 
 1. Confirm target chain and block. Use the latest block by default only when current chain data has been fetched or supplied.
