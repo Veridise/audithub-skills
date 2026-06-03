@@ -72,6 +72,14 @@ When multiple setup fixes are independent, run them in parallel with disjoint wr
    - Use `audithub-orca-counterexample-analyzer` for any violations, and carry each violation forward into the final report with an explicit classification.
    - Use `audithub-orca-final-reporter` for the final summary.
 
+## Pre-submission checklist
+
+Before every `run_orca_task` call, confirm:
+
+- The `task_input` payload matches the canonical shape in `audithub-orca-live-state-setup` (including the required `parameters` block with `timeout`, `fork_network`, `fork_block_number`, `fuzz_targets`, `language`).
+- The uploaded archive is flat-rooted per the same skill's "Archive layout".
+- Every spec (including cached or inherited ones) passes the Preflight Checks in `audithub-orca-v-spec-writer`.
+
 ## Task patience
 
 OrCa task execution often takes longer than the configured fuzzing timeout alone. A submitted task may still be busy for at least that many seconds, and setup phases such as source fetching, deployment, and ABI extraction can add several more minutes. Do not mark a task as stalled or abandon it early solely because it has not completed yet. When checking status, prefer infrequent, backoff-based polling over repeated rapid checks.
