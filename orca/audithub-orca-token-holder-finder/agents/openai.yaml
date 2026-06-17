@@ -1,0 +1,4 @@
+interface:
+  display_name: "OrCa Token Holder Finder"
+  short_description: "Resolve the top ERC-20 holder per contract via Covalent (GoldRush)."
+  default_prompt: "Look up the top ERC-20 holder for each of these contract addresses on the given chain at one block before the fork block."

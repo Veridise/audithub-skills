@@ -39,6 +39,7 @@ When multiple setup fixes are independent, run them in parallel with disjoint wr
 2. Select targets and mode.
    - Use `audithub-orca-target-selector` when targets or mode are not explicit.
    - Use `audithub-orca-live-state-setup` for live-state campaigns.
+   - For live-state campaigns you must run `audithub-orca-token-holder-finder` on every fuzz target address at `fork_block - 1` before the first run, and seed the returned holders into `users`. Run it on all targets and let the skill return `null` for non-ERC-20s; do not pre-filter targets or substitute manual Covalent calls unless the skill is unavailable or broken.
    - Use `audithub-orca-local-deployment-builder` for local deployment campaigns.
    - Delegate source-heavy target/mode discovery when the repository is large; require a compact target table and unresolved setup needs.
 
@@ -78,6 +79,7 @@ Before every `run_orca_task` call, confirm:
 
 - The `task_input` payload matches the canonical shape in `audithub-orca-live-state-setup` (including the required `parameters` block with `timeout`, `fork_network`, `fork_block_number`, `fuzz_targets`, `language`).
 - The uploaded archive is flat-rooted per the same skill's "Archive layout".
+- For live-state campaigns, `audithub-orca-token-holder-finder` was run on every fuzz target (non-ERC-20s return `null` and are skipped) and the resolved holders are in `users`; otherwise the campaign stops with a recorded blocker.
 - Every spec (including cached or inherited ones) passes the Preflight Checks in `audithub-orca-v-spec-writer`.
 
 ## Task patience

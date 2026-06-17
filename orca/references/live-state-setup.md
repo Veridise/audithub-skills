@@ -42,7 +42,7 @@ Before a smoke run, verify:
 
 ## Initial user policy
 
-Start without special fuzz users unless the target relies on known balances, roles, or approvals. Add users later when metrics show access control, balance, or approval bottlenecks.
+For live-state ERC-20 targets, resolve top holders with `audithub-orca-token-holder-finder` (sub-agent, campaign chain and `fork_block - 1`) and seed the returned non-null wallets into `users` before the first run. Only leave `users` empty when no target is an ERC-20 (the skill returns `null` for all inputs). Add further users later when metrics show access control, balance, or approval bottlenecks.
 
 ## Explorer API patterns
 

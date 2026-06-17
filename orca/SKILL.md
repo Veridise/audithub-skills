@@ -22,6 +22,7 @@ OrCa tasks can be slow to settle. Treat a submitted task as potentially running 
 - Translate English properties to [V]: `audithub-orca-v-spec-writer/SKILL.md`.
 - If a run fails on V syntax or target-shape mistakes, check the V spec writer or smoke-run debugger before tuning.
 - Write OrCa hints: `audithub-orca-hint-writer/SKILL.md`.
+- Resolve top ERC-20 holders to seed `users` for live-state setups: `audithub-orca-token-holder-finder/SKILL.md`.
 - Triage counterexamples and PoC evidence: `audithub-orca-counterexample-analyzer/SKILL.md`.
 - Summarize campaign results: `audithub-orca-final-reporter/SKILL.md`.
 
