@@ -3,6 +3,7 @@
 This repository contains skills for AI agents (e.g., Codex/Claude code) useful for setting up and using AuditHub tools.
 
 ## Repository layout
+
 - Each skill lives in its own folder at the repo root.
 - Each skill folder must include:
   - `README.md` (purpose + author)
@@ -12,6 +13,7 @@ This repository contains skills for AI agents (e.g., Codex/Claude code) useful f
 For multiple related skills, create a single directory with a single `README.md`, and a sub-directory for each skill.
 
 ## Installing skills manually
+
 If your agent supports installing skills directly from a repository, prefer that flow first.
 
 If you are using codex locally, symlink a skill folder into your local `~/.codex/skills` directory so Codex can load it.
@@ -23,6 +25,7 @@ Example (from repo root):
 ```bash
 mkdir -p ~/.codex/skills
 ln -s "$(pwd)/" ~/.codex/skills/audithub-skills
+ln -s "$(pwd)/orca" ~/.codex/skills/audithub-skills  # required for orca skills
 ```
 
 Claude Code example (watch out, claude code does not recurse in the skill directory):
@@ -33,6 +36,7 @@ ln -s "$(pwd)/<skill-dir>" ~/.claude/skills/<skill-dir>
 ```
 
 ## Contribution guidelines
+
 - Keep changes minimal and DRY.
 - Every skill must have `SKILL.md` and `README.md`. The `README.md` must include the purpose and author.
 - If you add templates, place them in `assets/` and keep them small.
@@ -41,5 +45,7 @@ ln -s "$(pwd)/<skill-dir>" ~/.claude/skills/<skill-dir>
 - Add or update tests/examples when behavior changes.
 
 ## Skills
-- [`orca`](./orca/README.md): Set of skills for setting up OrCa fuzzing campaigns and analyzing OrCa results.
-- [`defi-vanguard`](./defi-vanguard/README.md): Set of skills for setting up DeFi Vanguard scans and analyzing their results.
+
+- `[orca](./orca/README.md)`: Set of skills for setting up OrCa fuzzing campaigns and analyzing OrCa results.
+- `[defi-vanguard](./defi-vanguard/README.md)`: Set of skills for setting up DeFi Vanguard scans and analyzing their results.
+
