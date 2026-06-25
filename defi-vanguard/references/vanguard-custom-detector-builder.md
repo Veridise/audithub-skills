@@ -16,5 +16,5 @@
 - Use camel case while naming the variables.
 
 ## References
-- Use PAQL documentation in `references/defi-vanguard-docs/` and make sure to review everything under `references/defi-vanguard-docs/custom-detectors/`.
-- For sample PAQL detectors of common vulnerabilities and libraries check sub-directories of `references/paql-library/`. 
+- Use PAQL documentation hosted at https://docs.audithub.dev/vanguard/custom-detectors/ and other pages in custom detector
+- For sample PAQL detectors see https://docs.audithub.dev/vanguard/custom-detectors/tutorials . 

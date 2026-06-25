@@ -21,7 +21,3 @@ Use DeFi Vanguard to prepare static analysis scans for Solidity projects and to 
 - Use available repository inspection tools to understand contracts and findings.
 - Keep outputs strict to the specified format for each role.
 - Prefer concrete, code-grounded findings over speculation.
-
-## References
-
-Make sure to leverage documentation files under `references/defi-vanguard-docs`
