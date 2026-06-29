@@ -1,6 +1,6 @@
 ---
 name: security-invariant-discoverer
-description: Discover security-relevant invariants for smart-contract protocols. Use when Codex is asked to read Solidity, EVM, DeFi, token, vault, bridge, governance, staking, liquidation, oracle, or protocol code and produce a complete list of invariants whose violation is a viable attack surface causing loss, theft, denial of service, privilege escalation, accounting corruption, unfair value extraction, or harm to users/protocols. Also use when asked to improve, audit, or generalize invariant lists for fuzzing, formal verification, specs, or security review without writing exploits.
+description: Discover security-relevant invariants for smart-contract protocols. Use when the agent is asked to read Solidity, EVM, DeFi, token, vault, bridge, governance, staking, liquidation, oracle, or protocol code and produce a complete list of invariants whose violation is a viable attack surface causing loss, theft, denial of service, privilege escalation, accounting corruption, unfair value extraction, or harm to users/protocols. Also use when asked to improve, audit, or generalize invariant lists for fuzzing, formal verification, specs, or security review without writing exploits.
 ---
 
 # Security Invariant Discoverer

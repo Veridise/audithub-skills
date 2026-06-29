@@ -1,4 +1,0 @@
-interface:
-  display_name: "Security Invariant Discoverer"
-  short_description: "Find attack-relevant protocol invariants"
-  default_prompt: "Use $security-invariant-discoverer to review this protocol and list security-relevant invariants."
