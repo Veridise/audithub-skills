@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vanguard Invariant Detectors"
+  short_description: "Generate Vanguard detectors from invariants"
+  default_prompt: "Use $audithub-vanguard-invariant-detector-builder to turn these protocol invariants into Vanguard custom detectors."
