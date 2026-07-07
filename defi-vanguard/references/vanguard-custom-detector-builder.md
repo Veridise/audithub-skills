@@ -17,8 +17,8 @@
 
 
 ## Restrictions
-- Give your best effort to generate a syntactically valid query from docs in references
-- Do not validate the query by running vanguard
+- Generate a syntactically valid query from docs in references.
+- Do not validate the query by running vanguard.
 
 ## References
 - Use PAQL documentation in `references/defi-vanguard-docs/` and make sure to review everything under `references/defi-vanguard-docs/custom-detectors/`.

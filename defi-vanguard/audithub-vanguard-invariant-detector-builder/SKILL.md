@@ -5,11 +5,21 @@ description: Generate best-effort DeFi Vanguard custom detectors from English se
 
 # Vanguard Invariant Detector Builder
 
+## Required References
+
+Before drafting detectors, read the available Vanguard custom-detector and PAQL documentation:
+
+- `../references/vanguard-custom-detector-builder.md`
+- `../references/defi-vanguard-docs/` when present
+- `../../veridise-docs/vanguard/custom-detectors/` when available in the AuditHub skills checkout
+
+If a documentation path is missing, state that briefly and continue using the best available local Vanguard examples, existing custom detectors, or PAQL dialect references supplied by the user.
+
 ## Purpose
 
 Turn English security invariants into best-effort Vanguard custom detectors. Produce practical PAQL/Luau detector definitions that approximate each invariant against the target codebase, while documenting what each detector can and cannot prove.
 
-Use this for invariant-driven detector sets. The invariants may be high-level, informal, incomplete, or written for fuzzing/formal review; translate them into static approximations rather than requiring formal precision.
+Accept invariants that are high level properties. Translate the properties into structural invariants i.e. properties about code that can be checked statically using custom detectors. 
 
 ## Required References
 
