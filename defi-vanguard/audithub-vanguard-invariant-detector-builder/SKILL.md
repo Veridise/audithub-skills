@@ -1,0 +1,88 @@
+---
+name: audithub-vanguard-invariant-detector-builder
+description: Generate best-effort DeFi Vanguard custom detectors from English security invariants for Solidity projects. Use when the user provides invariant lists, properties, protocol rules, assumptions, or expected behaviors and wants them converted into PAQL or Detector.register Luau detectors, usually one detector per invariant plus an optional detector config. This skill should inspect target contracts and write detector definitions when requested, but must not run Vanguard to validate them.
+---
+
+# Vanguard Invariant Detector Builder
+
+## Required References
+
+Before drafting detectors, read the available Vanguard custom-detector and PAQL documentation:
+
+- `../references/vanguard-custom-detector-builder.md`
+- `../references/defi-vanguard-docs/` when present
+- `../../veridise-docs/vanguard/custom-detectors/` when available in the AuditHub skills checkout
+
+If a documentation path is missing, state that briefly and continue using the best available local Vanguard examples, existing custom detectors, or PAQL dialect references supplied by the user.
+
+## Purpose
+
+Turn English security invariants into best-effort Vanguard custom detectors. Produce practical PAQL/Luau detector definitions that approximate each invariant against the target codebase, while documenting what each detector can and cannot prove.
+
+Accept invariants that are high level properties. Translate the properties into structural invariants i.e. properties about code that can be checked statically using custom detectors. 
+
+## Required References
+
+Before drafting detectors, read the available Vanguard custom-detector and PAQL documentation:
+
+- `../references/vanguard-custom-detector-builder.md`
+- `../references/defi-vanguard-docs/` when present
+- `../../veridise-docs/vanguard/custom-detectors/` when available in the AuditHub skills checkout
+
+If a documentation path is missing, state that briefly and continue using the best available local Vanguard examples, existing custom detectors, or PAQL dialect references supplied by the user.
+
+## Hard Constraint
+
+Do not run Vanguard to validate generated custom detectors. The output is best effort according to the docs and local examples. If the user explicitly asks for validation, say that validation is outside this skill's workflow and should be done as a separate Vanguard run.
+
+## Workflow
+
+1. Read the invariant source completely. Accept Markdown, plain text, issue text, or existing invariant folders.
+2. Inspect first-party contracts relevant to the invariants. Prefer `rg` and targeted file reads. Do not rely only on invariant wording.
+3. Derive the detector strategy from the invariant and the inspected code. Choose PAQL appropriate entities
+4. Generate one detector per invariant unless several invariants are clearly inseparable or one invariant needs multiple complementary detectors. If an invariant is not meaningfully checkable statically, write a detector for the closest concrete review surface and say so.
+5. Use `Detector.register { ... }` Luau files when writing to a project. Use unique stable ids, such as `<project>-invariant-01-short-name`.
+6. Add or update a detector config only when the user asks for files or the repository already has a custom-detector config convention. Preserve existing entries.
+7. Do not include exploit code or PoCs.
+
+## Detector Authoring Guidance
+
+- Prefer concrete, code-grounded PAQL over broad generic scans, but accept that English invariants often require heuristic approximations.
+- Name PAQL variables in camelCase by their role.
+- Use only PAQL entities and properties supported by the loaded docs, local examples, or dialect references.
+- Avoid fragile or undocumented entities/properties unless the loaded docs show they exist.
+- Use project-specific anchors from the inspected contracts: function names, storage locations, call signatures, events, modifiers, comments, and data-flow relationships.
+- Use `regexMatch` only when it makes the detector more robust across naming variants; avoid overfitting to unrelated examples.
+- Use `AS` projections when writing `.luau` detector files so results are interpretable.
+- Include concise `description`, `message`, and `title` fields explaining the invariant and why a result matters.
+- Treat detectors as heuristics. A detector may flag review surfaces rather than proven invariant violations.
+
+## Output Discipline
+
+When writing files, use this layout unless the repository already has a convention:
+
+```text
+custom-detectors/
+  detector-config.json
+  invariants/
+    invariant-01-short-name.luau
+    invariant-02-short-name.luau
+```
+
+For each generated detector, mention:
+
+- source invariant number/name;
+- detector file path or query;
+- what it approximates;
+- important limitations.
+
+If only returning queries in chat, group by invariant and include the full PAQL or `Detector.register` block for each.
+
+## Quality Bar
+
+- Every detector must be traceable to a specific invariant.
+- Every detector must be derived from the target codebase and the specific invariant being translated.
+- Preserve existing detector config entries and avoid overwriting unrelated custom detectors.
+- Prefer a narrow useful detector over a broad noisy one.
+- State when an invariant cannot be meaningfully encoded statically and provide the closest review-surface detector instead.
+
