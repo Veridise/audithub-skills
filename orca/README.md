@@ -16,6 +16,7 @@ The pack keeps `orca/SKILL.md` as a backward-compatible campaign orchestrator an
 - `audithub-orca-property-discoverer`: Discovers English-language protocol properties for OrCa fuzzing.
 - `audithub-orca-v-spec-writer`: Translates English protocol properties into OrCa `[V]` specifications.
 - `audithub-orca-hint-writer`: Writes OrCa hints from execution preconditions and metrics blockers.
+- `audithub-orca-token-holder-finder`: Resolves the top holder wallet for ERC-20 contracts via Etherscan, for seeding live-state `users`.
 - `audithub-orca-counterexample-analyzer`: Analyzes counterexamples and classifies real bugs versus specification issues.
 - `audithub-orca-final-reporter`: Summarizes final OrCa campaign results, findings, and follow-up risks.
 

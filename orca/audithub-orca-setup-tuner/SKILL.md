@@ -42,7 +42,7 @@ When a run is submitted from this stage, remember that OrCa execution can contin
 ## Decision rules
 
 - Add contracts when current targets require another contract for meaningful state changes.
-- Add users when real protocol roles, balances, or approvals are blocking execution.
+- Add users when real protocol roles, balances, or approvals are blocking execution. For ERC-20 holder seeding on live-state campaigns, use `audithub-orca-token-holder-finder` (sub-agent) with the campaign chain and `fork_block - 1`.
 - Add hints when random arguments rarely satisfy meaningful preconditions.
 - Add helpers when the real interface requires complex setup values or multi-step wrappers.
 - Update deployment when local state is unrealistic.

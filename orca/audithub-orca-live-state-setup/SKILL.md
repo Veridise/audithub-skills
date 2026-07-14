@@ -81,7 +81,7 @@ Do not nest these under a project-named subfolder.
 4. Format and validate the on-chain deployment JSON against the OrCa documentation listed above before any smoke run.
 5. Record source paths for targets when available, because live-state [V] specs may need Solidity source to map struct fields and enum variants to numeric indexes.
 6. Record live-state details in `orca_config/campaign.json` when writing artifacts.
-7. Leave special fuzz users empty unless balances, roles, or approvals justify adding them.
+7. You must use `audithub-orca-token-holder-finder` (sub-agent) to seed fuzz users before creating the first version: call it with the campaign chain and `fork_block - 1`, passing every fuzz target address. Run it on all targets and let the skill return `null` for non-ERC-20s; do not pre-filter targets or substitute manual Covalent calls unless the skill is unavailable or broken. Add the returned non-null wallets to `config.json`'s `users` map with the all-zero private key. If the skill returns `null` for every input, omit the `users` block entirely so OrCa keeps its default senders.
 
 ## [V] spec compatibility
 
