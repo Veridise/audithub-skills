@@ -16,10 +16,16 @@ Before handing off or running a new [V] spec, verify the following:
 - Equality uses `=` in [V], not `==`.
 - Use `nulladdr` for zero-address checks; `address(0)` is rejected by the parser.
 - Avoid `bytes32(0)` literals; restructure the spec to compare without the explicit cast.
-- Exactly one of `spec` or `inv` is present in each file.
+- Each file contains exactly one top-level property unit: one `vars:` block and
+  exactly one of `spec` or `inv`.
 - Any function-argument binding is intentional and not shadowing a free variable by accident.
+- Every spec file is still present at the intended relative path and is named in
+  the campaign metadata or handoff that will be submitted.
 - The spec has a short validation path planned before it is used in a broader campaign.
 - Re-run all preflight checks on cached or inherited specs before submission; do not assume they still pass.
+- When supporting a submission workflow, return a bounded preflight result that
+  clearly says whether the current spec set is submit-ready and lists the
+  blocking files and reasons when it is not.
 
 ## Required references
 
