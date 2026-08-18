@@ -78,7 +78,21 @@ Before every `run_orca_task` call, confirm:
 
 - The `task_input` payload matches the canonical shape in `audithub-orca-live-state-setup` (including the required `parameters` block with `timeout`, `fork_network`, `fork_block_number`, `fuzz_targets`, `language`).
 - The uploaded archive is flat-rooted per the same skill's "Archive layout".
+- Every referenced deployment, spec, hint, and settings file exists at the
+  exact relative path that will be uploaded.
+- For local deployments, run or inspect the deployment script locally when
+  practical before submission. If the setup fails locally in a reproducible
+  way, treat that as a blocker to fix before consuming a remote run.
+- The deployment path is submit-ready for the chosen framework: OrCa can
+  recover deployed addresses and required artifacts from the framework's
+  machine-readable outputs and exact uploaded relative paths, without relying
+  on a human to read stdout, decode return values, follow handwritten notes, or
+  manually translate ad hoc paths into the submission layout.
 - Every spec (including cached or inherited ones) passes the Preflight Checks in `audithub-orca-v-spec-writer`.
+
+Do not create a fresh submission version, increment submitted-run counters, or
+call `run_orca_task` until the full pre-submission checklist passes. A local
+pre-submit failure is a setup/tuning blocker, not a consumed remote run.
 
 ## Task patience
 

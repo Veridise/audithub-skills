@@ -35,6 +35,19 @@ spec: []!finished(*, False)
 8. If the on-chain deployment JSON has a trimmed ABI, restore the full ABI for each fuzzed contract before retrying; never keep only the functions that seem immediately relevant.
 9. Record the run attempt and log-derived diagnosis in `orca_config/run_ledger.json`.
 10. Before the first run, sanity-check campaign shape: `fuzz_targets` must list contract names, not function selectors, and function-level narrowing belongs in `fuzzing_blacklist`.
+11. Before any new remote submission, run a submit-readiness gate over the
+    current deployment path, archive inputs, and spec set. Confirm that every
+    referenced file exists at the intended relative path and that OrCa can
+    recover deployed addresses from the chosen framework's artifacts.
+12. For local deployments, run or inspect the deployment script locally when
+    practical before submitting. A reproducible local setup failure is a local
+    blocker, not a reason to spend another remote run.
+13. For Foundry local deployments, a script that merely returns deployed
+    addresses is not submit-ready by itself; prefer a standard script/broadcast
+    flow or another machine-readable artifact shape that OrCa can parse instead
+    of relying on a human to copy values out of stdout or return data.
+14. If the submit-readiness gate fails for a locally diagnosable reason, record
+    the blocker and repair it before consuming another submitted run.
 
 ## Task patience
 

@@ -28,8 +28,12 @@ Grant roles intentionally and document why each fuzz user exists.
 The deployment script should:
 
 - be deterministic under a local Anvil-style chain;
+- be runnable or at least inspectable locally when practical, so setup issues
+  are caught before a remote submission;
 - avoid wall-clock, network, or secret dependencies;
-- expose deployed addresses in the format expected by OrCa;
+- expose deployed addresses in the format expected by OrCa through
+  machine-readable framework artifacts rather than only logs, return values, or
+  manual notes;
 - avoid duplicate deployments of the same dependency;
 - keep mocks simple but behaviorally plausible;
 - include setup calls needed for ordinary protocol interaction.

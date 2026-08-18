@@ -24,7 +24,17 @@ Use a sub-agent when deployment setup requires reading many fixtures, tests, con
 3. Build one deployment path that deploys the campaign targets and required dependencies once.
 4. Add mocks only for missing external systems and keep them behaviorally plausible.
 5. Seed users, balances, approvals, roles, oracle values, liquidity, collateral, debt, shares, and other state needed for ordinary flows.
-6. Record the deployment script path, deployed target names, users, and setup assumptions in `orca_config/campaign.json` when writing artifacts.
+6. Run or inspect the deployment locally when practical so missing roles,
+   constructor ordering issues, bad mock behavior, and artifact-path problems
+   are caught before submission.
+7. Make the deployment output machine-readable in the format OrCa expects for
+   the chosen framework. If the script cannot expose deployed addresses through
+   a parseable artifact path, treat that as a blocker instead of assuming a
+   human can recover them from stdout, return values, comments, or manual
+   notes.
+8. Record the deployment script path, deployed target names, users, setup
+   assumptions, and any submit-readiness blocker in `orca_config/campaign.json`
+   when writing artifacts.
 
 ## Output
 
